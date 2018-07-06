@@ -1,0 +1,24 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Text Analyzer</title>
+</head>
+<body>
+<center><h1>Text Analyzer</h1>
+<form action="/load" enctype="multipart/form-data" method="post">
+    File to upload:
+    <input type="file" name="file"/>
+
+    <input type="submit" value="Upload"/>
+</form>
+<form th:if="${isLoaded}" action="/checkbrackets" enctype="multipart/form-data" method="post">
+    <input type="submit" value="Check Brackets"/>
+</form>
+<form th:if="${isLoaded}" action="/toplist" enctype="multipart/form-data" method="post">
+    <input type="submit" value="Repeating Words"/>
+</form>
+<form action="/" method="get">
+    <label th:text="${myText}"/>
+</form>
+</center>
+</body>
+</html>
